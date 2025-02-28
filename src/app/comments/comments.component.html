@@ -1,0 +1,16 @@
+<div class="comments-container">
+    <h3>Hozzászólások</h3>
+    
+    <div *ngFor="let comment of comments" class="comment">
+      <p><strong>{{ comment.Email }}</strong> - {{ comment.Helysegnev }}</p>
+      <p>{{ comment.Comment }}</p>
+    </div>
+    
+    <div class="comment-form">
+      <h4>Új hozzászólás</h4>
+      <input type="text" [(ngModel)]="commentData.Email" placeholder="Email" required>
+      <input type="text" [(ngModel)]="commentData.Helysegnev" placeholder="Helységnév" required>
+      <textarea [(ngModel)]="commentData.Comment" placeholder="Írd be a hozzászólásod..." required></textarea>
+      <button (click)="postComment()">Küldés</button>
+    </div>
+  </div>

@@ -1,0 +1,28 @@
+.kozep{
+    text-align: center;
+}
+.megyek{
+   fill: white;
+   stroke: black;
+   stroke-width: 2px; 
+}
+
+.megye {
+    transition: transform 0.5s ease-in-out;
+    transform-origin: -10% 30%;
+    z-index: 1;
+    cursor:pointer;
+  }
+ .megye:hover{
+    transform: skewY(-1deg);
+    fill: lightgreen
+}
+.fovaros:hover{
+    fill:red
+}
+.mousehover{
+    position: absolute;
+    color: black;
+    font-size: large;
+}
+

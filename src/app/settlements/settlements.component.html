@@ -1,0 +1,51 @@
+<div>
+    <input type="text" class="form-control" placeholder="Helységnév" [(ngModel)]="settlements.Helysegnev" >
+    <input type="number" class="form-control" placeholder="Keleti Hosszúság" [(ngModel)]="settlements.KH">
+    <input type="number" class="form-control" placeholder="Keleti hosszúság fok,perc" [(ngModel)]="settlements.keleti_hossz_fok_perc">
+    <input type="number" class="form-control" placeholder="Északi szélesseg" [(ngModel)]="settlements.ESZ">
+    <input type="number" class="form-control" placeholder="Északi szélesseg fok,perc" [(ngModel)]="settlements.eszaki_szelesseg_fok_perc">
+    <button class="btn btn-outline-success" (click)="addSettlement()">Település Hozzáadása</button>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Helységnév</th>
+            <th>Keleti Hosszúság</th>
+            <th>Keleti hosszúság fok,perc</th>
+            <th>Északi szélesség</th>
+            <th>Északi szélesseg: fok,perc</th>
+            <th>Műveletek:</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of datas">
+            <td >
+                <input class="form-control" [(ngModel)]="data.Helysegnev" >
+            </td>
+            <td>
+                <input class="form-control" [(ngModel)]="data.KH" >
+            </td>
+               <td>
+                <input class="form-control" [(ngModel)]="data.keleti_hossz_fok_perc" >
+            </td>
+            <td>
+                <input class="form-control" [(ngModel)]="data.ESZ" >    
+            </td>
+            <td>
+                <input class="form-control" [(ngModel)]="data.eszaki_szelesseg_fok_perc" >
+            </td>
+            <td>
+                <button class="btn btn-outline-warning" (click)="updateSettlement(data)">Település Frissitése</button>
+                <button class="btn btn-outline-danger" (click)="deleteSettlement(data.id)">Település Törlése</button>
+                <button class="btn btn-outline-primary"  
+                *ngIf="user"
+                [routerLink]="['/comments', data.Helysegnev]" 
+                [routerLinkActive]="['active']"   
+                [queryParams]="{email: user?.email}">
+                Kommentelés
+            </button>
+            </td>   
+        </tr>
+    </tbody>
+</table>
