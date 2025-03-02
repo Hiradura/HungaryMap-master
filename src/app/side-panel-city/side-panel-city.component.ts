@@ -1,18 +1,17 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-side-panel-city',
-  standalone: false,
-  
   templateUrl: './side-panel-city.component.html',
-  styleUrl: './side-panel-city.component.css'
+  styleUrls: ['./side-panel-city.component.css'],
+  standalone:false
 })
 export class SidePanelCityComponent {
-  @Input() isOpen = false;  
-  @Input() selectedCity = ''; 
-  @Output() close = new EventEmitter<void>(); 
+  @Input() city: string = '';
+  @Input() isOpen: boolean = false;
+  @Output() close = new EventEmitter<void>();
 
   closePanel() {
-    this.close.emit(); 
+    this.close.emit();
   }
 }
